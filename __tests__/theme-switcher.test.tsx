@@ -8,4 +8,10 @@ describe("ThemeSwitcher", () => {
     const themeSwitcher = screen.getByTestId("theme-switcher");
     expect(themeSwitcher).toBeInTheDocument();
   });
+
+  it("renders a theme switcher with a label", () => {
+    render(<ThemeSwitcher />);
+    const themeSwitcher = screen.getByTestId(/theme/i);
+    expect(themeSwitcher).toBeInTheDocument();
+  });
 });
