@@ -14,5 +14,10 @@ describe("ThemeSwitcher", () => {
     const themeSwitcher = screen.getByTestId(/theme/i);
     expect(themeSwitcher).toBeInTheDocument();
   });
-  it();
+  it("renders a theme switcher with a label and icon", () => {
+    render(<ThemeSwitcher />);
+    const themeSwitcher = screen.getByLabelText(/theme/i);
+    const icon = screen.getByTestId("theme-switcher-icon");
+    expect(themeSwitcher).toContainElement(icon);
+  });
 });
