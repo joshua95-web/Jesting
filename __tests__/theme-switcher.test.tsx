@@ -7,4 +7,5 @@ test("renders different themes to choose from", () => {
   act(() => {
     fireEvent.click(screen.getByTestId("theme-switcher"));
   });
+  expect(screen.queryByTestId("theme-switcher")).toBeInTheDocument();
 });
