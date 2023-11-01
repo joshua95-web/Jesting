@@ -14,4 +14,5 @@ describe("ThemeSwitcher", () => {
     const themeSwitcher = screen.getByTestId(/theme/i);
     expect(themeSwitcher).toBeInTheDocument();
   });
+  it();
 });
