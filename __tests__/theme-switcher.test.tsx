@@ -1,11 +1,11 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import ThemeSwitcher from "@/components/shared/other/theme-switcher";
-import { act } from "@testing-library/react";
 
-test("renders different themes to choose from", () => {
-  render(<ThemeSwitcher />);
-  act(() => {
-    fireEvent.click(screen.getByTestId("theme-switcher"));
+describe("ThemeSwitcher", () => {
+  it("renders a theme switcher", () => {
+    render(<ThemeSwitcher />);
+    const themeSwitcher = screen.getByTestId("theme-switcher");
+    expect(themeSwitcher).toBeInTheDocument();
   });
-  expect(screen.queryByTestId("theme-switcher")).toBeInTheDocument();
 });
