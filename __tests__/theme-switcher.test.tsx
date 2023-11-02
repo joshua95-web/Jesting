@@ -20,4 +20,14 @@ describe("ThemeSwitcher", () => {
     const icon = screen.getByTestId("theme-switcher-icon");
     expect(themeSwitcher).toContainElement(icon);
   });
+  it("renders a theme switcher with a label and icon with a theme", () => {
+    render(<ThemeSwitcher />);
+    const themeSwitcher = screen.getByTestId("theme-switcher");
+    const icon = screen.getByTestId("theme-switcher-icon");
+    expect(themeSwitcher).toContainElement(icon);
+    expect(screen.getByRole("icon")).toHaveAttribute(
+      "href",
+      "/sprites/regular.svg#sun-bright"
+    );
+  });
 });
