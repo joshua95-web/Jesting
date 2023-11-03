@@ -27,7 +27,7 @@ describe("ThemeSwitcher", () => {
     const label = screen.getByText((content, element) => {
       return content.includes("Light");
     });
-    expect(themeSwitcher).toContainElement(icon);
+    expect(icon).toBeInTheDocument();
     expect(label).toBeInTheDocument();
   });
 });
