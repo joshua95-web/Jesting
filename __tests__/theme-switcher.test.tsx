@@ -24,10 +24,10 @@ describe("ThemeSwitcher", () => {
     render(<ThemeSwitcher />);
     const themeSwitcher = screen.getByTestId("theme-switcher");
     const icon = screen.getByTestId("theme-switcher-icon");
+    const label = screen.getByText((content, element) => {
+      return content.includes("Light");
+    });
     expect(themeSwitcher).toContainElement(icon);
-    expect(screen.getByRole("icon")).toHaveAttribute(
-      "href",
-      "/sprites/regular.svg#sun-bright"
-    );
+    expect(label).toBeInTheDocument();
   });
 });
