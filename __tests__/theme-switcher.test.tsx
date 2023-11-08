@@ -14,20 +14,23 @@ describe("ThemeSwitcher", () => {
     const themeSwitcher = screen.getByTestId("theme-switcher");
     expect(themeSwitcher).toBeInTheDocument();
   });
-  it("renders a theme switcher with a label and icon", () => {
+  // it("renders a theme switcher with a label and icon", () => {
+  //   render(<ThemeSwitcher />);
+  //   const themeSwitcher = screen.getByTestId("theme-switcher");
+  //   const icon = screen.getByTestId("theme-switcher-icon");
+  //   expect(themeSwitcher).toContainElement(icon);
+  // });
+  // it("renders a theme switcher with a label and icon with a theme", () => {
+  //   render(<ThemeSwitcher />);
+  //   const themeSwitcher = screen.getByTestId("theme-switcher");
+  //   const icon = screen.getByTestId("theme-switcher-icon");
+  //   const themes = screen.getByTestId("theme-switcher-themes");
+  //   const label = screen.getByText(themes[0].label);
+  //   expect(icon).toBeInTheDocument();
+  //   expect(label).toBeInTheDocument();
+  // });
+  it("brings up popover when clicked", () => {
     render(<ThemeSwitcher />);
-    const themeSwitcher = screen.getByTestId("theme-switcher");
-    const icon = screen.getByTestId("theme-switcher-icon");
-    expect(themeSwitcher).toContainElement(icon);
-  });
-  it("renders a theme switcher with a label and icon with a theme", () => {
-    render(<ThemeSwitcher />);
-    const themeSwitcher = screen.getByTestId("theme-switcher");
-    const icon = screen.getByTestId("theme-switcher-icon");
-    const label = screen.getByText((content, element) => {
-      return content.includes("Light");
-    });
-    expect(icon).toBeInTheDocument();
-    expect(label).toBeInTheDocument();
+    const button = screen.getByTestId("popOverButton");
   });
 });

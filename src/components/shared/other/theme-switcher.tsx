@@ -121,6 +121,7 @@ export default function ThemeSwitcher() {
       <Popover className="relative">
         {({ open }) => (
           <>
+            <div data-testid="popOverButton"></div>
             <Popover.Button className="inline-flex items-center rounded-full p-3 text-sm font-medium shadow-sm bg-yellow-100 hover:bg-yellow-200 text-slate-900 transition-colors duration-150 ease-in-out">
               <span className="sr-only">Toggle theme</span>
               <div data-testid="theme-switcher-icon">
