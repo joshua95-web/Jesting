@@ -1,4 +1,10 @@
-import { fireEvent, render, screen, act } from "@testing-library/react";
+import {
+  waitFor,
+  fireEvent,
+  render,
+  screen,
+  act,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ThemeSwitcher from "@/components/shared/other/theme-switcher";
 
@@ -32,8 +38,9 @@ describe("ThemeSwitcher", () => {
   it("brings up popover when clicked", () => {
     render(<ThemeSwitcher />);
     const button = screen.getByTestId("popOverButton");
-    const panel = screen.queryByTestId("popOverPanel");
-    // fireEvent.click(button);
-    // expect(panel).toBeInTheDocument();
+    fireEvent.click(button);
+    waitFor(() =>
+      expect(screen.getByTestId("popOverPanel")).toBeInTheDocument()
+    );
   });
 });
