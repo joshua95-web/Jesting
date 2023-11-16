@@ -147,7 +147,6 @@ export default function ThemeSwitcher() {
                       </div>
                       {themes.map(({ value, label, icon }) => (
                         <button
-                          data-testid="theme-switch-button"
                           key={value}
                           className={clsx(
                             "flex flex-col items-center justify-center text-slate-900 hover:bg-slate-100",

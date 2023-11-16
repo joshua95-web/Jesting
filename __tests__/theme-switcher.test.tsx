@@ -4,7 +4,6 @@ import {
   render,
   screen,
   act,
-  getByRole,
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ThemeSwitcher from "@/components/shared/other/theme-switcher";
@@ -36,23 +35,14 @@ describe("ThemeSwitcher", () => {
     );
   });
   it("changes light theme to dark theme on click", () => {
-    const localStorageMock = {
-      getItem: jest.fn(),
-      setItem: jest.fn(),
-      clear: jest.fn(),
-    };
-    localStorageMock.getItem.mockReturnValue("light");
-    localStorage.setItem("theme", "light");
     render(<ThemeSwitcher />);
     const button = screen.getByTestId("popOverButton");
     fireEvent.click(button);
     waitFor(() =>
       expect(screen.getByTestId("popOverPanel")).toBeInTheDocument()
     );
-    const themeSwitchButton = getByRole("button", { name: "Dark" });
-    fireEvent.click(themeSwitchButton);
-    waitFor(() =>
-      expect(screen.getByTestId("popOverPanel")).toBeInTheDocument()
-    );
+    const darkButton = screen.getByLabelText("moon");
+    fireEvent.click(darkButton);
+    waitFor(() => expect(localStorage.theme).toBe("dark"));
   });
 });
