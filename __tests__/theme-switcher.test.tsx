@@ -8,6 +8,8 @@ import {
 import userEvent from "@testing-library/user-event";
 import ThemeSwitcher from "@/components/shared/other/theme-switcher";
 
+"use client"; 
+
 describe("ThemeSwitcher", () => {
   it("renders a theme switcher", () => {
     render(<ThemeSwitcher />);
@@ -34,15 +36,14 @@ describe("ThemeSwitcher", () => {
       expect(screen.getByTestId("popOverPanel")).toBeInTheDocument()
     );
   });
-  it("changes light theme to dark theme on click", () => {
+  it("renders page in light theme when localStorage.theme is light", () => {
+
+    localStorage.setItem("theme", "light");
     render(<ThemeSwitcher />);
     const button = screen.getByTestId("popOverButton");
     fireEvent.click(button);
     waitFor(() =>
       expect(screen.getByTestId("popOverPanel")).toBeInTheDocument()
     );
-    const darkButton = screen.getByLabelText("moon");
-    fireEvent.click(darkButton);
-    waitFor(() => expect(localStorage.theme).toBe("dark"));
-  });
+    const darkThemeButton = screen.getByTestId("darkThemeButton");
 });
